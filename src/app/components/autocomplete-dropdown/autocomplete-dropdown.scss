@@ -1,0 +1,12 @@
+.autocomplete-container {
+    position: relative;
+    mat-form-field {
+        width: 100%;
+    }
+    .error-message {
+        font-size: 10px;
+        color: red;
+        position: absolute;
+        bottom: -2px;
+    }
+}

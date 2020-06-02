@@ -1,0 +1,10 @@
+{
+    "auth": {
+        "user": "next",
+        "pass": "next",
+        "secret": "'next-secret'"
+    },
+    "server": {
+        "base": "https://vpic.nhtsa.dot.gov/api/vehicles"
+    }
+}

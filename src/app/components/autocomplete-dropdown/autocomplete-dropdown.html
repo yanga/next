@@ -1,0 +1,17 @@
+<div class="autocomplete-container">
+    <mat-form-field>
+        <input #input 
+        type="text"
+        [placeholder]="placeholder"
+        aria-label="Number"
+        matInput
+        (keyup)="onInputChange($event)"
+        [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayWith">
+            <mat-option *ngFor="let option of filteredOptions" [value]="option" (onSelectionChange)="onChange($event)">
+            {{option[filterField]}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <div class="error-message">{{error}}</div>
+</div>

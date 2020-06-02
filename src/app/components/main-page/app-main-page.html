@@ -1,0 +1,35 @@
+<div class="main-page">
+  <div class="form">
+        <div class="form-fields" *ngIf="!formSubmited">
+          <autocomplete-dropdown
+            placeholder="Manufacturer"
+            [displayWith]="manufacturerDisplayFn"
+            [options]="manufacturerOptions"
+            [filterField]="'Mfr_Name'"
+            (onSelectionChange)="onManufacturerChange($event)"
+            [error]="manufacturerError"
+          ></autocomplete-dropdown>
+  
+          <autocomplete-dropdown
+            placeholder="Makes"
+            [displayWith]="makeDisplayFn"
+            [options]="makesOptions"
+            [filterField]="'Make_Name'"
+            [error]="makeError"
+            (onSelectionChange)="onMakeChange($event)"
+          ></autocomplete-dropdown>
+  
+          <autocomplete-dropdown
+            placeholder="Models"
+            [displayWith]="modelDisplayFn"
+            [options]="modelOptions"
+            [filterField]="'Model_Name'"
+            [error]="modelError"
+            (onSelectionChange)="onModelChange($event)"
+          ></autocomplete-dropdown>
+  
+          <button mat-raised-button color="primary" (click)="submitForm()">Submit</button>
+        </div>
+        <div class="success-message" *ngIf="formSubmited">Thank you for submitting the data!</div>
+  </div>
+</div>
