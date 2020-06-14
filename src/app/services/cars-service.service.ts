@@ -64,12 +64,12 @@ export class CarsService {
   }
 
   getMakesByManufacturer (manufacturer: Manufacturer): Observable<Makes> {
-    const url = `http://localhost:3000/GetMakeForManufacturer?manufacturerId=${manufacturer.Mfr_ID}`;
+    const url = `http://localhost:3000/GetMakeForManufacturer/${manufacturer.Mfr_ID}`;
     return this.http.get<Makes>(url, this.getHeaders());
   }
 
   getModelsForMakeId (make: Make) {
-    const url = `http://localhost:3000/GetModelsForMakeId?makeId=${make.Make_ID}`;
+    const url = `http://localhost:3000/GetModelsForMakeId/${make.Make_ID}`;
     return this.http.get<Makes>(url, this.getHeaders());
   }
 }
