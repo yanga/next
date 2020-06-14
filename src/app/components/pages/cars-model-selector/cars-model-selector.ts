@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, FormBuilder} from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { Observable } from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import { CarsService, Manufacturer, Make, Model } from 'src/app/services/cars-service.service';
-import { Validators } from '@angular/forms';
+import { CarsService } from 'src/app/services/cars-service.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { Make, Manufacturer, Model } from '../../../models/cars.model';
 
 @Component({
   selector: 'cars-model-selector',
@@ -20,7 +16,7 @@ export class CarsModelSelector implements OnInit {
   public manufacturerError = '';
   public makeError = '';
   public modelError = '';
-
+  public generalError: string;
   public values = {
     manufacturer:  '',
     make: '',
@@ -32,7 +28,6 @@ export class CarsModelSelector implements OnInit {
   constructor (
     private carsService: CarsService,
     private auth: AuthService,
-    private fb: FormBuilder,
     ) {}
 
   ngOnInit() {
@@ -44,11 +39,7 @@ export class CarsModelSelector implements OnInit {
     this.carsService.getManufacturer().subscribe(res => {
       this.manufacturerOptions = res.Results;
     }, err => {
-      if(err.status === 401) {
-        this.auth.logout();
-      } else {
-        // TBD: handle other errors
-      }
+      this.handleError(err);
     });
   }
 
@@ -65,6 +56,8 @@ export class CarsModelSelector implements OnInit {
   public onManufacturerChange(value) {
     this.modelOptions = [];
     this.makesOptions = [];
+    this.generalError = '';
+
     const manufacturer: Manufacturer = value.source.value;
     this.manufacturerError = '';
     this.values = {
@@ -75,11 +68,7 @@ export class CarsModelSelector implements OnInit {
     this.carsService.getMakesByManufacturer(manufacturer).subscribe(res => {
       this.makesOptions = res.Results;
     }, err => {
-      if(err.status === 401) {
-        this.auth.logout();
-      } else {
-        // TBD: handle other errors
-      }
+      this.handleError(err);
     });
   }
 
@@ -87,6 +76,7 @@ export class CarsModelSelector implements OnInit {
     this.modelOptions = [];
     const make: Make = value.source.value;
     this.makeError = '';
+    this.generalError = '';
     this.values = {
       manufacturer: this.values.manufacturer,
       make: make.Make_Name,
@@ -95,24 +85,30 @@ export class CarsModelSelector implements OnInit {
     this.carsService.getModelsForMakeId(make).subscribe(res => {
       this.modelOptions = res.Results;
     }, err => {
-      if(err.status === 401) {
-        this.auth.logout();
-      } else {
-        // TBD: handle other errors
-      }
+      this.handleError(err);
     });
   }
+
   public onModelChange(value) {
+    this.generalError = '';
     const model: Model = value.source.value;
     this.values = Object.assign({...this.values},{model: model.Model_Name});
     this.modelError = '';
+  }
+
+  private  handleError (err) {
+    if(err.status === 401) {
+      this.auth.logout();
+    } else {
+      this.generalError = 'Oops! Something went wrong!';
+    }
   }
 
   public submitForm () {
     let formIsValid = true;
     Object.keys(this.values).map(key => {
       if(this.values[key] === ''){
-        this[`${key}Error`] = 'Required';
+        this[`${key}Error`] = `${key} is required`;
         formIsValid = false;
       }
     });

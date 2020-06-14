@@ -31,6 +31,7 @@
             <div class="buttons-container">
                 <button (click)="submitForm()">Submit</button>
             </div>
+            <div class="general-error">{{generalError}}</div>
         </div>
         <div class="success-message" *ngIf="formSubmitted">Thank you for submitting the data!</div>
         <div class="reset" *ngIf="formSubmitted" (click)="resetForm()">Find another model</div>
