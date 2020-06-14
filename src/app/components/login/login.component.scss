@@ -1,15 +1,28 @@
+@import "../../../_vars";
 .login-form {
-    width: 450px;
+
+    width: 600px;
     height: 320px;
-    border: 1px solid silver;
-    border-radius: 32px;
     display: flex;
     flex-flow: column;
     padding: 32px 48px;
-    margin: 72px;
-    box-shadow: silver 12px 12px 32px;
-    .error {
-        color: red;
-        margin: 10px auto;
+    margin-left: 12px;
+    margin-top: -20px;
+    background-color: $light-bg;
+    ::ng-deep .mat-form-field-flex {
+        background-color: transparent;
     }
+    .actions-container {
+        margin-top: 32px;
+        text-align: right;
+    }
+    .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+.success-message {
+    font-size: 22px;
+    color: green;
+    line-height: 256px;
 }

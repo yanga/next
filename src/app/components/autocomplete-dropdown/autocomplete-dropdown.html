@@ -1,4 +1,4 @@
-<div class="autocomplete-container">
+<div class="autocomplete-container" [ngClass]="options.length === 0 ? 'disabled' : ''">
     <mat-form-field>
         <input #input 
         type="text"

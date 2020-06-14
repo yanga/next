@@ -1,0 +1,34 @@
+@import "../../../../_vars";
+.model-selector-page {
+    .form {
+
+        width: 600px;
+        height: 320px;
+        display: flex;
+        flex-flow: column;
+        padding: 32px 48px;
+        margin-left: 12px;
+        margin-top: -20px;
+        background-color: $light-bg;
+        .buttons-container {
+            text-align: right;
+        }
+        .disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+    .success-message {
+        font-size: 32px;
+        color: #11341a;
+        line-height: 256px;
+        text-align: center;
+        text-shadow: silver 1px 1px;
+    }
+    .reset {
+        cursor: pointer;
+        color: navy;
+        text-align: right;
+        text-decoration: underline;
+    }
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-component',
@@ -12,7 +13,10 @@ export class LoginComponent implements OnInit {
   public hide = true;
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  constructor(private fb: FormBuilder,
+              private auth: AuthService,
+              private router: Router,
+              ) { }
 
   ngOnInit () {
     this.form = this.fb.group({
@@ -27,6 +31,7 @@ export class LoginComponent implements OnInit {
           if(res.token) {
             // this.isLoggedIn = true;
             localStorage.setItem('token', res.token);
+            this.router.navigateByUrl('/about');
           } else {
             this.loginError = 'Login failed. please try again.';
           }

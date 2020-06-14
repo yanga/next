@@ -8,11 +8,11 @@ import { Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-main-page',
-  templateUrl: 'app-main-page.html',
-  styleUrls: ['app-main-page.scss']
+  selector: 'cars-model-selector',
+  templateUrl: 'cars-model-selector.html',
+  styleUrls: ['cars-model-selector.scss']
 })
-export class MainPageComponent implements OnInit {
+export class CarsModelSelector implements OnInit {
   public manufacturerOptions = [];
   public makesOptions = [];
   public modelOptions = [];
@@ -27,7 +27,7 @@ export class MainPageComponent implements OnInit {
     model: '',
   };
 
-  public formSubmited = false;
+  public formSubmitted = false;
 
   constructor (
     private carsService: CarsService,
@@ -117,7 +117,13 @@ export class MainPageComponent implements OnInit {
       }
     });
     if(formIsValid) {
-      this.formSubmited = true;
+      this.formSubmitted = true;
     }
+  }
+
+  public resetForm () {
+    this.modelOptions = [];
+    this.makesOptions = [];
+    this.formSubmitted = false;
   }
 }

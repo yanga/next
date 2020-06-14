@@ -1,4 +1,8 @@
 .autocomplete-container {
+    &.disabled {
+        opacity: 0.3;
+        pointer-events: none;
+    }
     position: relative;
     mat-form-field {
         width: 100%;

@@ -1,4 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "vars";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html {
@@ -6,4 +7,26 @@ html {
 }
 *, *:before, *:after {
 box-sizing: inherit;
+}
+
+button {
+    display: inline-block;
+    width: 120px;
+    margin: auto;
+    margin-top: 32px;
+    background-color: $action-button;
+    border: none;
+    color: $light-text;
+    font-size: 18px;
+    padding: 6px 12px;
+    cursor: pointer;
+    &:focus {outline:0;}
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
+    -webkit-transition-delay: 9999s;
 }

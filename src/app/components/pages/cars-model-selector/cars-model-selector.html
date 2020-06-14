@@ -1,6 +1,7 @@
-<div class="main-page">
-  <div class="form">
-        <div class="form-fields" *ngIf="!formSubmited">
+<div class="model-selector-page">
+    <h1>Model selector</h1>
+    <div class="form">
+        <div class="form-fields" *ngIf="!formSubmitted">
           <autocomplete-dropdown
             placeholder="Manufacturer"
             [displayWith]="manufacturerDisplayFn"
@@ -9,7 +10,7 @@
             (onSelectionChange)="onManufacturerChange($event)"
             [error]="manufacturerError"
           ></autocomplete-dropdown>
-  
+
           <autocomplete-dropdown
             placeholder="Makes"
             [displayWith]="makeDisplayFn"
@@ -18,7 +19,7 @@
             [error]="makeError"
             (onSelectionChange)="onMakeChange($event)"
           ></autocomplete-dropdown>
-  
+
           <autocomplete-dropdown
             placeholder="Models"
             [displayWith]="modelDisplayFn"
@@ -27,9 +28,11 @@
             [error]="modelError"
             (onSelectionChange)="onModelChange($event)"
           ></autocomplete-dropdown>
-  
-          <button mat-raised-button color="primary" (click)="submitForm()">Submit</button>
+            <div class="buttons-container">
+                <button (click)="submitForm()">Submit</button>
+            </div>
         </div>
-        <div class="success-message" *ngIf="formSubmited">Thank you for submitting the data!</div>
-  </div>
+        <div class="success-message" *ngIf="formSubmitted">Thank you for submitting the data!</div>
+        <div class="reset" *ngIf="formSubmitted" (click)="resetForm()">Find another model</div>
+    </div>
 </div>

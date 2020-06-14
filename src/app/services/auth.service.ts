@@ -13,7 +13,6 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem('token');
-    window.location.reload();
   }
   login (username: string, password: string): Observable<any> {
     const body = { username, password};
