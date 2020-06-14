@@ -1,0 +1,21 @@
+@import "../../../../_vars";
+.page {
+  width: 100%;
+  min-width: 800px;
+  height: 100vh;
+  background: url("../../../../assets/bg.jpg");
+  background-size: cover;
+  ::ng-deep .page-content {
+    padding: 35px;
+     h1 {
+      background-color: $title-bg;
+       padding: 12px 18px;
+       font-size: 24px;
+       color: $dark-text;
+       font-weight: bold;
+       display: inline-block;
+       transform: rotate(-10deg);
+       text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import "../../../_vars";
+.app-header {
+  height: 70px;
+  width: 100%;
+  background-color: $dark-bg-gray;
+  border-bottom: 4px solid #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .logo {
+    margin: 16px;
+  }
+  .menu {
+    display: flex;
+    justify-self: flex-end;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      height: 70px;
+      line-height: 70px;
+      text-transform: uppercase;
+      color: white;
+      font-size: 14px;
+      padding: 0 12px;
+      cursor: pointer;
+      &.active {
+        background-color: $title-bg;
+        color: $dark-bg-gray;
+      }
+    }
+  }
+}

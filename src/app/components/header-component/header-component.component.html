@@ -1,0 +1,10 @@
+<div class="app-header">
+    <img class="logo" src="/assets/logo.png" width="209" height="33" />
+    <ul class="menu">
+        <li *ngFor="let page of pages"
+            [ngClass]="currentPage === page ? 'active' : '' "
+            (click)="navigate(page)">
+            {{page}}
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,15 @@
+.about-page {
+  width: 600px;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: block;
+  padding: 32px 48px;
+  margin-left: 12px;
+  margin-top: -20px;
+  span {
+    line-height: 28px;
+    font-size: 16px;
+    color: #000000;
+    //box-shadow: 0.5em 0 0 rgba(255, 255, 255, 0.9),-0.5em 0 0 rgba(255, 255, 255, 0.9);
+  }
+
+}
