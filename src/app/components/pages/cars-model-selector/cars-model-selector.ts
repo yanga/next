@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarsService } from 'src/app/services/cars-service.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Make, Manufacturer, Model } from '../../../models/cars.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cars-model-selector',
@@ -28,6 +29,7 @@ export class CarsModelSelector implements OnInit {
   constructor (
     private carsService: CarsService,
     private auth: AuthService,
+    private router: Router,
     ) {}
 
   ngOnInit() {
@@ -97,8 +99,9 @@ export class CarsModelSelector implements OnInit {
   }
 
   private  handleError (err) {
+    console.log('ERR', err.status)
     if(err.status === 401) {
-      this.auth.logout();
+      this.router.navigateByUrl('/login');
     } else {
       this.generalError = 'Oops! Something went wrong!';
     }
