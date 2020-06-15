@@ -17,7 +17,6 @@ export class HeaderComponentComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.url.subscribe(url => {
       this.currentPage = url[0].path;
-      console.log('>>', url[0].path);
     });
   }
   public navigate (path: string) {

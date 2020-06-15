@@ -5,6 +5,7 @@ import { CarsModelSelector } from '../components/pages/cars-model-selector/cars-
 import { AuthGuard } from '../guards/auth.guard';
 import { AboutPageComponent } from '../components/pages/about-page/about-page.component';
 import { PageTemplateComponent } from '../components/templates/page-template/page-template.component';
+import { PageNotFoundComponent } from '../components/pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
     {
@@ -23,7 +24,14 @@ const routes: Routes = [
         component: PageTemplateComponent,
         canActivate: [AuthGuard],
         children: [{path: '**', component: AboutPageComponent}]
-    }
+    },
+    { path: '',   redirectTo: '/about', pathMatch: 'full' },
+    {
+        path: '**',
+        component: PageTemplateComponent,
+        canActivate: [AuthGuard],
+        children: [{path: '**', component: PageNotFoundComponent}]
+    },
 ];
 
 @NgModule({

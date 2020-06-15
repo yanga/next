@@ -9,6 +9,8 @@
     margin-left: 12px;
     margin-top: -20px;
     background-color: $light-bg;
+    box-shadow: $box-shadow;
+
     ::ng-deep .mat-form-field-flex {
         background-color: transparent;
     }

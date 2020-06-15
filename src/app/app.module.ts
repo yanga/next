@@ -18,6 +18,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HeaderComponentComponent } from './components/header-component/header-component.component';
 import { AboutPageComponent } from './components/pages/about-page/about-page.component';
 import { PageTemplateComponent } from './components/templates/page-template/page-template.component';
+import {PageNotFoundComponent} from './components/pages/page-not-found/page-not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { PageTemplateComponent } from './components/templates/page-template/page
     LoginComponent,
     HeaderComponentComponent,
     PageTemplateComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

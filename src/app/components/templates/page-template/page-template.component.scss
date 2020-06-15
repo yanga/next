@@ -6,6 +6,8 @@
   background: url("../../../../assets/bg.jpg");
   background-size: cover;
   ::ng-deep .page-content {
+    width: 800px;
+    margin: auto;
     padding: 35px;
      h1 {
       background-color: $title-bg;
