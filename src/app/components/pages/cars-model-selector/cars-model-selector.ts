@@ -120,6 +120,11 @@ export class CarsModelSelector implements OnInit {
   public resetForm () {
     this.modelOptions = [];
     this.makesOptions = [];
+    this.values = {
+      manufacturer:  '',
+      make: '',
+      model: '',
+    };
     this.formSubmitted = false;
   }
 }
